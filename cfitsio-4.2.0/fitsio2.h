@@ -151,6 +151,18 @@ extern int Fitsio_Pthread_Status;
 #    error "can't handle long size given by __riscv_xlen"
 #  endif
 
+#elif defined(__loongarch__)
+
+#define BYTESWAPPED TRUE
+
+#  if __loongarch_grlen == 32
+#    define LONGSIZE 32
+#  elif __loongarch_grlen == 64
+#    define LONGSIZE 64
+#  else
+#    error "can't handle long size given by __loongarch_grlen"
+#  endif
+
 /* ============================================================== */
 /*  the following are all 32-bit byteswapped platforms            */
 
